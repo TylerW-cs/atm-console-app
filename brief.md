@@ -14,13 +14,14 @@ Wrap the whole thing in a do-while loop so the menu shows at least once and keep
 
 Read the user's menu choice and use a switch statement to branch on it — one case per option. 
 
+For Check Balance, just print the current balance. Use string interpolation with :F2 everywhere you show a money value, so it's always to 2 decimal places.
+
 For Deposit, ask for an amount, parse it to decimal, and add it to the balance with +=. 
 
 For Withdraw, ask for an amount and use a ternary operator to check whether the balance covers it: if it does, subtract with -=; if not, print an "insufficient funds" message and leave the balance untouched. 
 
-For Check Balance, just print the current balance. Use string interpolation with :F2 everywhere you show a money value, so it's always to 2 decimal places.
-
 When the user picks Exit, print a short goodbye message and let the loop end naturally.
+
 
 A few optional stretch goals once the core version works: 
 
