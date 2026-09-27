@@ -9,11 +9,11 @@ do // Start of the do-while loop
     Console.WriteLine("\nWhat option do you require?\n\n[1] Check Balance\n[2] Deposit\n[3] Withdraw\n[4] Exit\n"); // Outputs the menu to the console.
     option = int.Parse(Console.ReadLine()); // Assigning the input the user inputs (which is converted to an integer) to the variable called option.
 
-    if (option is < 1 or > 4)
+    if (option is < 1 or > 4) // Start of the If statement that sees if the option the user inputted is between 1 and 4.
     {
-        Console.WriteLine("\nPlease choose a number between 1 and 4!\n");
+        Console.WriteLine("\nPlease choose a number between 1 and 4!\n"); // If the option ISN'T between 1 and 4, this string is outputted to the console.
     }
-    else
+    else // Otherwise the below happens.
     {
         switch (option) // Start of the switch statement.
         {
