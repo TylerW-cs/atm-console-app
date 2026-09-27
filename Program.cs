@@ -3,6 +3,7 @@ int option; // Declaring a variable called option that is an integer data type.
 decimal depositAmount; // Declaring a variable called depositAmount that is a decimal data type.
 decimal withdrawAmount; // Declaring a variable called withdrawAmount that is a decimal data type.
 int transactionCount = 0; // Declaring a variable called transactionCount that is an integer data type.
+char exitConfirmation; // Declaring a variable called exitConfirmation that is a character data type.
 
 do // Start of the do-while loop
 {
@@ -40,7 +41,17 @@ do // Start of the do-while loop
             break; // Exits the switch statement.
 
             case 4: // If input is 4.
-            Console.WriteLine("\nGoodbye!\n"); // Ouputs a goodbye message.
+
+            Console.WriteLine("\nAre you sure you want to exit? (Y/N)\n");
+            exitConfirmation = char.ToUpper(char.Parse(Console.ReadLine()));
+            if (exitConfirmation is 'Y')
+                {
+                    Console.WriteLine("\nGoodbye!\n"); // Ouputs a goodbye message.
+                }
+            else
+                {
+                    option = 0;
+                }
             break; // Exits the switch statement.
         }
     }
