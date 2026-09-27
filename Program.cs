@@ -1,7 +1,8 @@
-﻿decimal balance = 250.00m; // Defining a variable called balance that is a decimal data type and assigned to 250.00.
-int option; // Defining a variable called option that is an integer data type.
-decimal depositAmount; // Defining a variable called depositAmount that is a decimal data type.
-decimal withdrawAmount; // Defining a variable called withdrawAmount that is a decimal data type.
+﻿decimal balance = 250.00m; // Declaring a variable called balance that is a decimal data type and assigned to 250.00.
+int option; // Declaring a variable called option that is an integer data type.
+decimal depositAmount; // Declaring a variable called depositAmount that is a decimal data type.
+decimal withdrawAmount; // Declaring a variable called withdrawAmount that is a decimal data type.
+int transactionCount = 0; // Declaring a variable called transactionCount that is an integer data type.
 
 do // Start of the do-while loop
 {
@@ -18,15 +19,17 @@ do // Start of the do-while loop
         Console.WriteLine("\nHow much would you like to deposit?"); // Outputs asking how much the user wants to deposit.
         depositAmount = decimal.Parse(Console.ReadLine()); // Assigning the input the user inputs (which is converted to a decimal data type) to the variable called depositAmount.
         balance += depositAmount; // Balance gets updated to add on the depositAmount the user inputted.
-        Console.WriteLine($"\nYour new balance is: £{balance:F2}\n"); // Outputs the updated balance amount of the user, making sure it is outputted to 2 decimal points.
+        transactionCount += 1; // The transaction count variable is increased by 1.
+        Console.WriteLine($"\nYour new balance is: £{balance:F2}\nTransaction Count: {transactionCount}\n"); // Outputs the updated balance amount of the user, making sure it is outputted to 2 decimal points. The transaction count total is also outputted.
         break; // Exits the switch statement.
 
         case 3: // If input is 3.
         Console.WriteLine("\nHow much would you like to withdraw?"); // Ouputes asking how much the user wants to withdraw.
         withdrawAmount = decimal.Parse(Console.ReadLine()); // Assigning the input the user inputs (which is converted to a decimal data type) to the variable called withdrawAmount.
+        transactionCount += 1; // The transaction count variable is increased by 1.
         string withdrawLimit = withdrawAmount > balance // Start of the Ternary Operator. 
         ? "\nSorry you do not have enough to make this withdrawal.\n" // If the withdrawAmount is more than the balance then this will be outputted to the console at the end of this case.
-        : $"\nYour new balance is: £{(balance -= withdrawAmount):F2}\n"; // If the withdrawAmount is less or equal to the balance then the withdraw amount gets removed from the balance and the new balance to 2 decimal places and is outputted to the console at the end of this case.
+        : $"\nYour new balance is: £{(balance -= withdrawAmount):F2}\nTransaction Count: {transactionCount}\n"; // If the withdrawAmount is less or equal to the balance then the withdraw amount gets removed from the balance and the new balance to 2 decimal places and is outputted to the console at the end of this case. The transaction count total is also outputted.
         Console.WriteLine(withdrawLimit); // Ouputs the relevant answer from above.
         break; // Exits the switch statement.
 
