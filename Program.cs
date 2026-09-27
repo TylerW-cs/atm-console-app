@@ -31,26 +31,25 @@ do // Start of the do-while loop
             break; // Exits the switch statement.
 
             case 3: // If input is 3.
-            Console.WriteLine("\nHow much would you like to withdraw?"); // Ouputes asking how much the user wants to withdraw.
+            Console.WriteLine("\nHow much would you like to withdraw?"); // Outputs asking how much the user wants to withdraw.
             withdrawAmount = decimal.Parse(Console.ReadLine()); // Assigning the input the user inputs (which is converted to a decimal data type) to the variable called withdrawAmount.
             transactionCount += 1; // The transaction count variable is increased by 1.
             string withdrawLimit = withdrawAmount > balance // Start of the Ternary Operator. 
             ? "\nSorry you do not have enough to make this withdrawal.\n" // If the withdrawAmount is more than the balance then this will be outputted to the console at the end of this case.
             : $"\nYour new balance is: £{(balance -= withdrawAmount):F2}\nTransaction Count: {transactionCount}\n"; // If the withdrawAmount is less or equal to the balance then the withdraw amount gets removed from the balance and the new balance to 2 decimal places and is outputted to the console at the end of this case. The transaction count total is also outputted.
-            Console.WriteLine(withdrawLimit); // Ouputs the relevant answer from above.
+            Console.WriteLine(withdrawLimit); // Outputs the relevant answer from above.
             break; // Exits the switch statement.
 
             case 4: // If input is 4.
-
-            Console.WriteLine("\nAre you sure you want to exit? (Y/N)\n");
-            exitConfirmation = char.ToUpper(char.Parse(Console.ReadLine()));
-            if (exitConfirmation is 'Y')
+            Console.WriteLine("\nAre you sure you want to exit? (Y/N)\n"); // Output the question to console.
+            exitConfirmation = char.ToUpper(char.Parse(Console.ReadLine())); // Forces the users input to be a character data type and to force their input to be a capital letter.
+            if (exitConfirmation is 'Y') // If users input is a "y" or "Y".
                 {
-                    Console.WriteLine("\nGoodbye!\n"); // Ouputs a goodbye message.
+                    Console.WriteLine("\nGoodbye!\n"); // Outputs a goodbye message.
                 }
             else
                 {
-                    option = 0;
+                    option = 0; // Resets option away from 4 so the do-while loop's condition (option != 4) stays true, causing it to loop back to the menu instead of ending the program.
                 }
             break; // Exits the switch statement.
         }
