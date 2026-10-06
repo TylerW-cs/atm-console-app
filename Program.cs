@@ -8,7 +8,7 @@ char exitConfirmation; // Declaring a variable called exitConfirmation that is a
 do // Start of the do-while loop
 {
     Console.WriteLine("\nWhat option do you require?\n\n[1] Check Balance\n[2] Deposit\n[3] Withdraw\n[4] Exit\n"); // Outputs the menu to the console.
-    option = int.Parse(Console.ReadLine()); // Assigning the input the user inputs (which is converted to an integer) to the variable called option.
+    option = int.Parse(Console.ReadLine()!); // Assigning the input the user inputs (which is converted to an integer) to the variable called option.
 
     if (option is < 1 or > 4) // Start of the If statement that sees if the option the user inputted is between 1 and 4.
     {
@@ -24,7 +24,7 @@ do // Start of the do-while loop
                 
             case 2: // If input is 2.
             Console.WriteLine("\nHow much would you like to deposit?"); // Outputs asking how much the user wants to deposit.
-            depositAmount = decimal.Parse(Console.ReadLine()); // Assigning the input the user inputs (which is converted to a decimal data type) to the variable called depositAmount.
+            depositAmount = decimal.Parse(Console.ReadLine()!); // Assigning the input the user inputs (which is converted to a decimal data type) to the variable called depositAmount.
             balance += depositAmount; // Balance gets updated to add on the depositAmount the user inputted.
             transactionCount += 1; // The transaction count variable is increased by 1.
             Console.WriteLine($"\nYour new balance is: £{balance:F2}\nTransaction Count: {transactionCount}\n"); // Outputs the updated balance amount of the user, making sure it is outputted to 2 decimal points. The transaction count total is also outputted.
@@ -32,7 +32,7 @@ do // Start of the do-while loop
 
             case 3: // If input is 3.
             Console.WriteLine("\nHow much would you like to withdraw?"); // Outputs asking how much the user wants to withdraw.
-            withdrawAmount = decimal.Parse(Console.ReadLine()); // Assigning the input the user inputs (which is converted to a decimal data type) to the variable called withdrawAmount.
+            withdrawAmount = decimal.Parse(Console.ReadLine()!); // Assigning the input the user inputs (which is converted to a decimal data type) to the variable called withdrawAmount.
             transactionCount += 1; // The transaction count variable is increased by 1.
             string withdrawLimit = withdrawAmount > balance // Start of the Ternary Operator. 
             ? "\nSorry you do not have enough to make this withdrawal.\n" // If the withdrawAmount is more than the balance then this will be outputted to the console at the end of this case.
@@ -42,7 +42,7 @@ do // Start of the do-while loop
 
             case 4: // If input is 4.
             Console.WriteLine("\nAre you sure you want to exit? (Y/N)\n"); // Output the question to console.
-            exitConfirmation = char.ToUpper(char.Parse(Console.ReadLine())); // Forces the users input to be a character data type and to force their input to be a capital letter.
+            exitConfirmation = char.ToUpper(char.Parse(Console.ReadLine()!)); // Forces the users input to be a character data type and to force their input to be a capital letter.
             if (exitConfirmation is 'Y') // If users input is a "y" or "Y".
                 {
                     Console.WriteLine("\nGoodbye!\n"); // Outputs a goodbye message.
